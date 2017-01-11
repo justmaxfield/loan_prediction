@@ -5,6 +5,8 @@ Created on Sun Jan 08 01:32:59 2017
 @author: JUSTIN
 """
 
+# NOTE: Work in Progress. Currently in the process of substituting missing values.
+
 #Import libraries
 import pandas as pd
 import numpy as np
@@ -55,3 +57,6 @@ temp3.plot(kind='bar', stacked=True, color=['red','blue'], grid = False)
 
 # Check for missing values
 print train.apply(lambda x: sum(x.isnull()),axis = 0)
+
+# Replace missing LoanAmount values with mean
+train['LoanAmount'].fillna(train['LoanAmount'].mean(), inplace = True)
